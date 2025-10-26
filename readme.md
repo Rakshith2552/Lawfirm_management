@@ -25,5 +25,10 @@ This project automates everyday law firm operations and provides a simple, user-
 
 ---
 
-## 📁 Project Structure
+## 📬 Contact
+
+👤 Rakshith R
+📧 **Email:** rakshith0525@gmail.com
+
+🔗 **LinkedIn:** https://www.linkedin.com/in/rakshith-rk/ | **GitHub:** https://github.com/Rakshith2552/
 

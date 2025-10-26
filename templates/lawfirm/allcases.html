@@ -1,0 +1,57 @@
+{% extends "lawfirm/base.html" %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <div class="container">
+        <div class="jumbotron">
+           <section class="hero text-center">
+                <div class="container">
+                    <h1 class="display-4 fw-bold">"Guiding to the Law Clarity and Strength"</h1>
+                </div>
+           </section>
+    <section class="container my-5">
+
+
+  <h2 class="text-center mb-4">Cases we are undertake</h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <!-- Card 1 -->
+{% for item in casedata %}
+    <div class="col">
+      <div class="card h-100 border-0 shadow-lg bg-white rounded-4">
+        <div class="row g-0 align-items-center">
+          <div class="col-md-5">
+            {% if item.case_image %}
+            <img
+              src="{{ item.case_image.url }}"
+              class="img-fluid rounded-start"
+              alt="{{ item.case_title }}"
+            />
+            {% else %}
+            <img
+              src="https://via.placeholder.com/500x300.png?text=No+Image"
+              class="img-fluid rounded-start"
+              alt="No image"
+            />
+            {% endif %}
+          </div>
+          <div class="col-md-7 bg-light-subtle p-3">
+            <div class="card-body">
+              <h5 class="card-title text-dark">{{item.case_title}}</h5>
+              <p class="card-text text-muted">{{item.case_description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endfor %}
+    
+  </div>
+</section>
+
+<div class="center_button text-center mt-5">
+  <a href="{% url 'enquiry' %}" class="btn btn-info">Make An Enquiry</a>
+  <a href="{% url 'appointment' %}" class="btn btn-info">Book An Appointment</a>
+</div>
+{% endblock  %}

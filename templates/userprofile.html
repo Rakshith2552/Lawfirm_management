@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1 style="text-align: center;">User Profile</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-body">
+                        <h5>username :{{user.username}}</h5>
+                        <h5>Email:{{user.email}}</h5>
+                        <h5>Phone:{{user.modelname.phone}}</h5>
+                        <h5>Address:{{user.modelname.address}}</h5>
+                        <h5>Street:{{user.modelname.street}}</h5>
+                        <h5>City:{{user.modelname.city}}</h5>
+                        <h5>State:{{user.modelname.state}}</h5>
+                        <h5>Pincode:{{user.modelname.pincode}}</h5>
+                        <a href="{% url 'update' %}" class="btn btn-info">Update</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-body">
+                        {% if user.modelname.profile_pic %}
+                            <img src="{{user.modelname.profile_pic.url}}" alt="UserPhoto" class="pic">
+                        {% else %}
+                            <p>No Profile Pic</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <hr style="color: red; height:15px">
+            <h3 style="text-align: center;">My Appointments</h3>
+                    <div class="container">
+                    <div class="jumbotron">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Case_id</th>
+                                <th scope="col">Case_type</th>
+                                <th scope="col">Case Description</th>
+                                <th scope="col">Court</th>
+                                <th scope="col">Lawyer</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Fees</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for case in case_dt %}
+                                <tr>
+                                <!-- <th scope="row">1</th> -->
+                                <td>{{forloop.counter}}</td>
+                                <td>{{case.case_type}}</td>
+                                <td>{{case.description}}</td>
+                                <td>{{case.court_name}}</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            <td>{{case.fee}}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="8" class="text-center">No enquires found.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+
+   
+        </div>
+    </div>
+{% endblock%}

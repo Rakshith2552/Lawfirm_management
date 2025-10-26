@@ -1,0 +1,36 @@
+# --- Python related ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.py.class
+
+# --- Virtual environment ---
+venv/
+env/
+.venv/
+ENV/
+
+# --- Django specific ---
+*.log
+db.sqlite3
+/staticfiles/
+media/
+local_settings.py
+
+# --- Environment / Secrets ---
+.env
+*.env
+
+# --- IDE files (VS Code, PyCharm, etc.) ---
+.vscode/
+.idea/
+
+# --- OS generated files ---
+.DS_Store
+Thumbs.db
+
+# --- Backup / Cache ---
+*.bak
+*.swp
+*.swo

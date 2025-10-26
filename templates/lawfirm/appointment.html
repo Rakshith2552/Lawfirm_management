@@ -1,0 +1,65 @@
+{% extends "lawfirm/base.html" %}
+{% block content %}
+{% load static %}
+
+
+    <div class="conatiner">
+        <div class="jumbotron">
+            <h1 style="text-align: center;">Book Your Appointments</h1>
+            <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{appointment.as_p}}
+            <input type="submit" class="btn btn-primary" value="Book An Appointment">
+        </form>
+        </div>
+    </div>   
+ 
+
+
+
+     <div class="container">
+            <div class="jumbotron">
+                        <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Case_id</th>
+                        <th scope="col">Case_type</th>
+                        <th scope="col">Case Description</th>
+                        <th scope="col">Court</th>
+                        <th scope="col">Lawyer</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Fees</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for appointment in appointments %}
+                        <tr>
+                        <!-- <th scope="row">1</th> -->
+                        <td>{{forloop.counter}}</td>
+                        <td>{{appointment.case_type}}</td>
+                        <td>{{appointment.description}}</td>
+                        <td>{{appointment.court_name}}</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    <td>{{appointment.fee}}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center">No enquires found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+                            
+                    </div>
+                </div>
+                
+     
+    
+
+       
+
+   
+{% endblock %}
